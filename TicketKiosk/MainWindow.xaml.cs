@@ -23,6 +23,11 @@ namespace TicketKiosk
         public MainWindow()
         {
             InitializeComponent();
+
+            List<TicketViewModel> tickets = new();
+            tickets.Add(new TicketViewModel(new Ticket("성인", 1500)));
+            tickets.Add(new TicketViewModel(new Ticket("학생", 1200)));
+            lstTicket.ItemsSource = tickets;
         }
     }
 }
