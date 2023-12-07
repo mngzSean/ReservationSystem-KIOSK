@@ -20,10 +20,10 @@
             <ColumnDefinition Width="180" />
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="lstTicket">
+        <ListView x:Name="lstTicket" BorderThickness="0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    <WrapPanel Orientation="Horizontal" Margin="6"></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -51,8 +51,17 @@
                 <TextBlock Text="선택항목" DockPanel.Dock="Left"/>
                 <Button Content="초기화" DockPanel.Dock="Right" Width="100"/>
             </DockPanel>
-            <ListView DockPanel.Dock="Left" Width="620">
-                
+            <ListView x:Name="lstBucket" BorderThickness="0" DockPanel.Dock="Left" Width="620">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" Margin="0,0,320,0" />
+                            <TextBlock Text="{Binding Price}" HorizontalAlignment="Center" Margin="0,0,80,0" />
+                            <TextBlock Text="{Binding Count}" HorizontalAlignment="Center" Margin="0,0,80,0" />
+                            <TextBlock Text="{Binding Total}" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
             <DockPanel DockPanel.Dock="Right" LastChildFill="False" >
                 <Button Content="결제하기" DockPanel.Dock="Bottom" Width="100"/>

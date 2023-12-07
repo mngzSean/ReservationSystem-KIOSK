@@ -51,5 +51,10 @@ namespace TicketKiosk
             _Ticket = Ticket;
             _Count = 0;
         }
+        public TicketViewModel(Ticket Ticket, int count) : this()
+        {
+            _Ticket = Ticket;
+            _Count = count;
+        }
     }
 }

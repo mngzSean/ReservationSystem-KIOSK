@@ -29,6 +29,11 @@ namespace TicketKiosk
             TicketList.Add(new TicketViewModel(new Ticket("성인", 1500)));
             TicketList.Add(new TicketViewModel(new Ticket("학생", 1200)));
             lstTicket.ItemsSource = TicketList;
+
+            List<TicketViewModel> BucketList = new();
+            BucketList.Add(new TicketViewModel(new Ticket("성인", 1500), 1));
+            BucketList.Add(new TicketViewModel(new Ticket("학생", 1200), 2));
+            lstBucket.ItemsSource = BucketList;
         }
     }
 }
