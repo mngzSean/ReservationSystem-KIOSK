@@ -20,14 +20,15 @@ namespace TicketKiosk
     /// </summary>
     public partial class MainWindow : Window
     {
+        //List<TicketViewModel> TicketList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
-            List<TicketViewModel> tickets = new();
-            tickets.Add(new TicketViewModel(new Ticket("성인", 1500)));
-            tickets.Add(new TicketViewModel(new Ticket("학생", 1200)));
-            lstTicket.ItemsSource = tickets;
+            List<TicketViewModel> TicketList = new();
+            TicketList.Add(new TicketViewModel(new Ticket("성인", 1500)));
+            TicketList.Add(new TicketViewModel(new Ticket("학생", 1200)));
+            lstTicket.ItemsSource = TicketList;
         }
     }
 }
