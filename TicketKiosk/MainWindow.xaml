@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
             <ColumnDefinition />
-            <ColumnDefinition Width="180" />
         </Grid.ColumnDefinitions>
 
         <ListView x:Name="lstTicket" BorderThickness="0">
@@ -46,14 +46,44 @@
                 <TextBlock Text="031-xxx-xxxx"/>
             </StackPanel>
         </StackPanel>
-        <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="12" LastChildFill="False">
-            <DockPanel DockPanel.Dock="Top" LastChildFill="False" >
-                <TextBlock Text="선택항목" DockPanel.Dock="Left"/>
-                <Button Content="초기화" DockPanel.Dock="Right" Width="100"/>
-            </DockPanel>
-            <ListView x:Name="lstBucket" BorderThickness="0" DockPanel.Dock="Left" Width="620">
+        <DockPanel Grid.Row="1" Grid.Column="0" Margin="6">
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="항목 이름" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="금액" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="수량" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="3" Text="합계" HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="총 금액" HorizontalAlignment="Center" />
+                <TextBlock Grid.Column="3" Text="\0" HorizontalAlignment="Center"/>
+            </Grid>
+            <ListView x:Name="lstBucket" BorderThickness="0" DockPanel.Dock="Left">
                 <ListView.ItemTemplate>
                     <DataTemplate>
+                        <!--<Grid DockPanel.Dock="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="항목 이름" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="금액" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" Text="수량" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="3" Text="합계" HorizontalAlignment="Center"/>
+                        </Grid>-->
                         <WrapPanel>
                             <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" Margin="0,0,320,0" />
                             <TextBlock Text="{Binding Price}" HorizontalAlignment="Center" Margin="0,0,80,0" />
@@ -63,9 +93,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <DockPanel DockPanel.Dock="Right" LastChildFill="False" >
-                <Button Content="결제하기" DockPanel.Dock="Bottom" Width="100"/>
-            </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="1" Grid.Column="1" LastChildFill="False" Margin="6">
+            <Button Content="비우기" DockPanel.Dock="Top" Height="40"/>
+            <Button Content="결제하기" DockPanel.Dock="Bottom" Height="40"/>
         </DockPanel>
     </Grid>
 </Window>
